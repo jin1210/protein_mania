@@ -1,0 +1,95 @@
+<div class="container">
+
+  <% if flash[:notice] %>
+   <p>
+     <%= flash[:notice] %>
+   </p>
+  <% end %>
+
+  <h4>商品新規登録</h4>
+
+  <%= form_with model: @item, url: admin_items_path, method: :post do |f| %>
+
+  <div class="row">
+    <div class="col-6">
+      <%= f.label :image, "商品画像" %>
+      <%= f.file_field :image, accept: "image/*" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+      <%= f.label :name, "商品名" %>
+      <%= f.text_field :name %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+      <%= f.label :kcal, "カロリー" %>
+      <%= f.text_field :kcal %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+      <%= f.label :protein, "たんぱく質量" %>
+      <%= f.text_field :protein %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+      <%= f.label :fat, "脂質" %>
+      <%= f.text_field :fat %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+      <%= f.label :carbohydrate, "炭水化物" %>
+      <%= f.text_field :carbohydrate %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+      <%= f.label :brand, "ブランド" %>
+      <%= f.text_field :brand %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+      <%= f.label :flavor, "風味" %>
+      <%= f.text_field :flavor %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+      <%= f.label :volume, "内容量" %>
+      <%= f.text_field :volume %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+      <%= f.label :type, "種類" %>
+      <%= f.text_field :type %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+      <%= f.label :price, "金額" %>
+      <%= f.text_field :price %>
+    </div>
+  </div>
+
+  <button type ="submit" class="btn btn-primary">新規登録</button>
+
+  <% end %>
+
+</div>
+
