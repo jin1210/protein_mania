@@ -1,0 +1,15 @@
+  ja:
+    enums:
+      review:
+        ease:
+          poor: "悪い"
+          good: "普通"
+          excellent: "良い"
+        taste:
+          poor: "悪い"
+          good: "普通"
+          excellent: "良い"
+        purpose:
+          muscle: "筋トレ"
+          diet: "ダイエット"
+          others: "その他"

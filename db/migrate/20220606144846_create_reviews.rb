@@ -4,7 +4,7 @@ class CreateReviews < ActiveRecord::Migration[6.1]
 
       t.integer :ease, null: false, default: 1
       t.integer :taste, null: false, default: 1
-      t.integer :porpose, null: false, default: 2
+      t.integer :purpose, null: false, default: 2
       t.text :addition
 
       t.timestamps

@@ -1,0 +1,35 @@
+<div class="container">
+
+  <h4><%= @reviews.user.name %>さんのレビュー一覧</h4>
+
+  <% @reviews.each do |review| %>
+
+   <div class="row">
+     <div class="col-3">
+      <%= image_tag review.item.image(100,100) %>
+     </div>
+     <div class="col-4">
+      <%= review.item.name %>
+     </div>
+   </div>
+
+   <div class="row">
+    <div class="col-3">
+     <%= review.ease_i18n %>
+     <%= review.taste_i18n %>
+     <%= review.purpose_i18n %>
+    </div>
+   </div>
+
+   <div class="row">
+    <div class=col-3>
+     <%= review.addition %>
+    </div>
+    <div class="col-9">
+     <%= link_to "削除する", admin_user_review_path(review.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class: 'btn btn-danger' %>
+    </div>
+   </div>
+
+ <% end %>
+
+</div>

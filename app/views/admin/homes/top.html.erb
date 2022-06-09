@@ -14,10 +14,12 @@
     <table class="table">
       <tbody>
         <td>
-          <%= image_tag @items.image, size: "100x100" %>
+          <%= image_tag item.image, size: "100x100" %>
         </td>
         <td>
-          <%= item.name %>
+          <% link_to admin_item_path(item.id) do %>
+           <%= item.name %>
+          <% end %>
         </td>
       </tbody>
     </table>

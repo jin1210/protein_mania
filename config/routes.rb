@@ -16,7 +16,11 @@ devise_for :admin, skip: [:registrations, :passwords], controllers: {
 
     get '/' => 'homes#top'
 
-    resources :users, only: [:index, :show, :edit, :update]
+    resources :users, only: [:index, :show, :edit, :update] do
+      resources :reviews, only: [:index, :destroy]
+    end
+
+
 
   end
 

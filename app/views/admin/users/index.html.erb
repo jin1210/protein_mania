@@ -1,0 +1,38 @@
+<div class="container">
+
+  <h4>会員一覧</h4>
+
+  <table class="table">
+    <tr>
+      <th class="table-secondary">会員ID</th>
+      <th class="table-secondary">氏名</th>
+      <th class="table-secondary">メールアドレス</th>
+      <th class="table-secondary">ステータス</th>
+    </tr>
+   <% @users.each do |user| %>
+    <tbody>
+      <tr>
+        <td>
+          <%= user.id %>
+        </td>
+        <td>
+          <% link_to admin_user_path(user.id) do %>
+           <%= user.name %>
+          <% end %>
+        </td>
+        <td>
+          <%= user.email %>
+        </td>
+        <td>
+          <% if user.is_active == true %>
+           有効
+          <% else %>
+           無効
+          <% end %>
+        </td>
+      </tr>
+    </tbody>
+   <% end %>
+  </table>
+
+</div>

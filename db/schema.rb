@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2022_06_06_145309) do
   create_table "reviews", force: :cascade do |t|
     t.integer "ease", default: 1, null: false
     t.integer "taste", default: 1, null: false
-    t.integer "porpose", default: 2, null: false
+    t.integer "purpose", default: 2, null: false
     t.text "addition"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
