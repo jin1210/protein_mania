@@ -35,7 +35,7 @@ devise_for :admin, skip: [:registrations, :passwords], controllers: {
     get 'users/confirmation', to: 'customers#confirmation'
     patch 'withdrawal' => 'users#withdrawal'
 
-    resource :reviews, only: [:index, :new, :create]
+    resources :reviews, only: [:index, :new, :create]
 
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

@@ -34,5 +34,11 @@ class Admin::ItemsController < ApplicationController
       render :edit
     end
   end
+  
+  private
+  def item_params
+    params.require(:item).permit(:name, :kcal, :protein, :fat, :carbohydrate, :brand, :flavor, :volume, :type, :price, :image)
+  end
+  
 
 end
