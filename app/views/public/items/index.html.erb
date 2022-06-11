@@ -1,0 +1,19 @@
+<div class="container">
+  
+  <% @items.each do |item| %>
+  <div class="row">
+    <div class="col-2">
+      <%= image_tag item.image, size: "100x100" %>
+    <div class="col-10">
+      <%= link_to item_path(item.id) do %>
+       <%= item.name %>
+      <% end %>
+      <%= item.kcal %>
+      <%= item.protein %>
+      <%= item.fat %>
+      <%= item.carbohydrate %>
+    </div>
+  </div>
+  <% end %>
+</div>
+      
