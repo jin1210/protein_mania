@@ -6,4 +6,7 @@ class User < ApplicationRecord
 
   has_many :reviews, dependent: :destroy
   has_one_attached :image
+
+  validates :email, presence: true
+  validates :name, presence: true
 end

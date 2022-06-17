@@ -1,5 +1,5 @@
 class Admin::UsersController < ApplicationController
-
+before_action :authenticate_admin!
   def index
     @users = User.all
   end
@@ -16,10 +16,10 @@ class Admin::UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.update(user_params)
     if @user.save
-      flash[:notice] = "successfully"
-      redirect_to admin_user(@user.id)
+      flash[:notice] = "登録に成功しました"
+      redirect_to admin_user_path(@user.id)
     else
-      flash[:notice] = "unsuccessful"
+      flash[:notice] = "登録に失敗しました"
       render :edit
     end
   end

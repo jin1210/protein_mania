@@ -1,19 +1,40 @@
 <div class="container">
-  
+
   <% @items.each do |item| %>
-  <div class="row">
+  <div class="row justify-content-md-center mt-3">
     <div class="col-2">
-      <%= image_tag item.image, size: "100x100" %>
-    <div class="col-10">
+      <%= image_tag item.image, size: "150x150" %>
+    </div>
+    <div class="col-5">
+     <p>
       <%= link_to item_path(item.id) do %>
        <%= item.name %>
       <% end %>
-      <%= item.kcal %>
-      <%= item.protein %>
-      <%= item.fat %>
-      <%= item.carbohydrate %>
+     </p>
+     <table class="table table-borderless">
+      <tbody>
+       <tr>
+        <td>
+         カロリー：<%= item.kcal %> kcal
+        </td>
+        <td>
+         タンパク質：<%= item.protein %> g
+        </td>
+       </tr>
+       <tr>
+        <td>
+         脂質：<%= item.fat %> g
+        </td>
+        <td>
+         炭水化物：<%= item.carbohydrate %> g
+        </td>
+       </tr>
+      </tbody>
+     </table>
     </div>
-  </div>
-  <% end %>
+   </div>
+   <% end %>
+
+  <%= paginate @items, theme: 'bootstrap-5' %>
+
 </div>
-      

@@ -16,7 +16,7 @@
           <%= user.id %>
         </td>
         <td>
-          <% link_to admin_user_path(user.id) do %>
+          <%= link_to admin_user_path(user.id) do %>
            <%= user.name %>
           <% end %>
         </td>

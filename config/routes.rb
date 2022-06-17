@@ -26,16 +26,19 @@ devise_for :admin, skip: [:registrations, :passwords], controllers: {
 
   scope module: :public do
 
-    resources :items, only: [:index, :show]
+    resources :items, only: [:index, :show] do
+      resources :reviews, only: [:index, :new, :create]
+    end
 
     root to: 'homes#top'
     get 'about' => 'homes#about', as:'about'
+    get 'search' => 'homes#search'
 
     resources :users, only: [:show, :edit, :update]
-    get 'users/confirmation', to: 'customers#confirmation'
+    get 'confirmation' => 'users#confirmation'
     patch 'withdrawal' => 'users#withdrawal'
 
-    resources :reviews, only: [:index, :new, :create]
+
 
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

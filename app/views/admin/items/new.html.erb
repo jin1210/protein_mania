@@ -1,95 +1,119 @@
 <div class="container">
 
   <% if flash[:notice] %>
-   <p>
+   <div class="notice-red">
      <%= flash[:notice] %>
-   </p>
+   </div>
   <% end %>
 
   <h4>商品新規登録</h4>
 
+
   <%= form_with model: @item, url: admin_items_path, method: :post do |f| %>
 
-  <div class="row">
-    <div class="col-6">
+  <div class="form-group row">
+    <div class="col-2">
       <%= f.label :image, "商品画像" %>
+    </div>
+    <div class="col-10">
       <%= f.file_field :image, accept: "image/*" %>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-6">
+  <div class="form-group row">
+    <div class="col-2">
       <%= f.label :name, "商品名" %>
+    </div>
+    <div class="col-10">
       <%= f.text_field :name %>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-6">
+  <div class="form-group row">
+    <div class="col-2">
       <%= f.label :kcal, "カロリー" %>
+    </div>
+    <div class="col-10">
       <%= f.text_field :kcal %>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-6">
+  <div class="form-group row">
+    <div class="col-2">
       <%= f.label :protein, "たんぱく質量" %>
+    </div>
+    <div class="col-10">
       <%= f.text_field :protein %>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-6">
+  <div class="form-group row">
+    <div class="col-2">
       <%= f.label :fat, "脂質" %>
+    </div>
+    <div class="col-10">
       <%= f.text_field :fat %>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-6">
+  <div class="form-group row">
+    <div class="col-2">
       <%= f.label :carbohydrate, "炭水化物" %>
+    </div>
+    <div class="col-10">
       <%= f.text_field :carbohydrate %>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-6">
+  <div class="form-group row">
+    <div class="col-2">
       <%= f.label :brand, "ブランド" %>
+    </div>
+    <div class="col-10">
       <%= f.text_field :brand %>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-6">
+  <div class="form-group row">
+    <div class="col-2">
       <%= f.label :flavor, "風味" %>
+    </div>
+    <div class="col-10">
       <%= f.text_field :flavor %>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-6">
+  <div class="form-group row">
+    <div class="col-2">
       <%= f.label :volume, "内容量" %>
+    </div>
+    <div class="col-10">
       <%= f.text_field :volume %>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-6">
-      <%= f.label :type, "種類" %>
-      <%= f.text_field :type %>
+  <div class="form-group row">
+    <div class="col-2">
+      <%= f.label :protein_type, "種類" %>
+    </div>
+    <div class="col-10">
+      <%= f.text_field :protein_type %>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-6">
+  <div class="form-group row">
+    <div class="col-2">
       <%= f.label :price, "金額" %>
+    </div>
+    <div class="col-10">
       <%= f.text_field :price %>
     </div>
   </div>
-
-  <button type ="submit" class="btn btn-primary">新規登録</button>
-
+  <div class="admin-submit">
+   <button type ="submit" class="btn btn-primary">新規登録</button>
+  </div>
   <% end %>
+
 
 </div>
 

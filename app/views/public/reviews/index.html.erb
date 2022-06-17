@@ -1,33 +1,51 @@
 <div class="container">
 
   <div class="row">
-    <div class="col-3">
-      <%= @review.item.image %>
+    <div class="col-3 mb-5 mt-5">
+      <%= image_tag @item.image, size: "200x200" %>
     </div>
     <div class="col-9">
-      <%= @review.item.name %>
+      <%= @item.name %>
     </div>
   </div>
 
-  <p>投稿レビュー一覧</p>
+  <h4>投稿レビュー一覧</h4>
 
   <% @reviews.each do |review| %>
-  <div class="row">
+   <div class="row">
     <div class="col-3">
-      <%= review.user.image %>
-      <%= review.user.name %>
+     <div class="show">
+       <% if review.user.image.attached? %>
+        <%= image_tag review.user.image, size: "100x100" %>
+       <% else %>
+        <%= image_tag 'no_image', size: "100x100" %>
+       <% end %>
+     </div>
+     <div class="show-name">
+       <%= review.user.name %>
+     </div>
     </div>
     <div class="col-9">
+      <table class="table table-borderless">
+        <tbody>
+          <tr>
+            <td style="width: 10%">
+             飲みやすさ：<%= review.ease_i18n %>
+            </td>
+            <td style="width: 10%">
+             味：<%= review.taste_i18n %>
+            </td>
+            <td style="width: 10%">
+             購入目的：<%= review.purpose_i18n %>
+            </td>
+           </tr>
+        </tbody>
+     </table>
       <p>
-        <%= review.ease_i18n %>
-        <%= review.taste_i18n %>
-        <%= review.purpose_i18n %>
-      </p>
-      <p>
-        <%= review.addition %>
+       <%= review.addition %>
       </p>
     </div>
-  </div>
+   </div>
   <% end %>
 
 </div>

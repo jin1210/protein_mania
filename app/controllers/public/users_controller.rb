@@ -1,7 +1,8 @@
 class Public::UsersController < ApplicationController
 
   def show
-    @user = User.find(params[:id])
+    @user = current_user
+    @reviews = @user.reviews.all.page(params[:page]).per(5)
   end
 
   def edit
@@ -9,13 +10,13 @@ class Public::UsersController < ApplicationController
   end
 
   def update
-    @user = current_user
-    @user.update(user_params)
-    if @user.save
-      flash[:notice] = "successfully"
-      redirect_to user_path(@user.id)
+    user = current_user
+    user.update(user_params)
+    if user.save
+      flash[:notice] = "登録に成功しました"
+      redirect_to user_path(user.id)
     else
-      flash[:notice] = "unsuccessful"
+      flash[:notice] = "登録に失敗しました"
       render :edit
     end
   end
@@ -24,11 +25,16 @@ class Public::UsersController < ApplicationController
   end
 
   def withdrawal
+    user = current_user
+    user.update(is_active: false)
+    reset_session
+    flash[:notice] = "退会処理を実行いたしました"
+    redirect_to root_path
   end
 
   private
   def user_params
-    params.require(:user).permit(:name, :is_active, :image)
+    params.require(:user).permit(:name, :is_active, :image, :email)
   end
 
 end

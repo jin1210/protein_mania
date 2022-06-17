@@ -1,10 +1,10 @@
 <div class="container">
 
-  <div class="row">
+  <div class="row mt-5 mb-2">
     <div class="col-2">
      <h4>商品一覧</h4>
     </div>
-    <div class="col-10">
+    <div class="home-submit">
       <%= link_to "新規登録", new_admin_item_path, class:"btn btn-primary" %>
     </div>
   </div>
@@ -17,7 +17,7 @@
           <%= image_tag item.image, size: "100x100" %>
         </td>
         <td>
-          <% link_to admin_item_path(item.id) do %>
+          <%= link_to admin_item_path(item.id) do %>
            <%= item.name %>
           <% end %>
         </td>
@@ -25,6 +25,10 @@
     </table>
 
   <% end %>
+
+
+  <%= paginate @items, theme: 'bootstrap-5' %>
+
 
 </div>
 

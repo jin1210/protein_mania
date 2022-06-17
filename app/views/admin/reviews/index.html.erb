@@ -1,12 +1,12 @@
 <div class="container">
 
-  <h4><%= @reviews.user.name %>さんのレビュー一覧</h4>
+  <h4><%= @user.name %>さんのレビュー一覧</h4>
 
   <% @reviews.each do |review| %>
 
    <div class="row">
      <div class="col-3">
-      <%= image_tag review.item.image(100,100) %>
+      <%= image_tag review.item.image, size: "100x100" %>
      </div>
      <div class="col-4">
       <%= review.item.name %>
@@ -29,7 +29,6 @@
      <%= link_to "削除する", admin_user_review_path(review.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class: 'btn btn-danger' %>
     </div>
    </div>
-
  <% end %>
 
 </div>

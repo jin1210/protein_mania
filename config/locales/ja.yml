@@ -2,13 +2,13 @@
     enums:
       review:
         ease:
-          poor: "悪い"
-          good: "普通"
-          excellent: "良い"
+          ease_poor: "悪い"
+          ease_good: "普通"
+          ease_excellent: "良い"
         taste:
-          poor: "悪い"
-          good: "普通"
-          excellent: "良い"
+          taste_poor: "悪い"
+          taste_good: "普通"
+          taste_excellent: "良い"
         purpose:
           muscle: "筋トレ"
           diet: "ダイエット"

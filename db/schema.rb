@@ -54,20 +54,22 @@ ActiveRecord::Schema.define(version: 2022_06_10_134639) do
 
   create_table "items", force: :cascade do |t|
     t.string "name", null: false
-    t.integer "kcal", null: false
-    t.integer "protein", null: false
-    t.integer "fat", null: false
-    t.integer "carbohydrate", null: false
+    t.decimal "kcal", precision: 6, scale: 2, null: false
+    t.decimal "protein", precision: 6, scale: 2, null: false
+    t.decimal "fat", precision: 6, scale: 2, null: false
+    t.decimal "carbohydrate", precision: 6, scale: 2, null: false
     t.string "brand", null: false
     t.string "flavor", null: false
     t.integer "volume", null: false
-    t.string "type", null: false
+    t.string "protein_type", null: false
     t.integer "price", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "reviews", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "item_id"
     t.integer "ease", default: 1, null: false
     t.integer "taste", default: 1, null: false
     t.integer "purpose", default: 2, null: false

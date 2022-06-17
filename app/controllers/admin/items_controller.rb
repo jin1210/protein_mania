@@ -1,5 +1,5 @@
 class Admin::ItemsController < ApplicationController
-
+before_action :authenticate_admin!
   def new
     @item = Item.new
   end
@@ -7,11 +7,11 @@ class Admin::ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      flash[:notice] = "successfully"
-      redirect_to admin_item(@item.id)
+      flash[:notice] = "登録に成功しました"
+      redirect_to admin_item_path(@item.id)
     else
-     flash[:notice] = "unsuccessful"
-     render :new
+      flash[:notice] = "登録に失敗しました"
+      render :new
     end
   end
 
@@ -27,18 +27,18 @@ class Admin::ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @item.update(item_params)
     if @item.save
-      flash[:notice] = "successfully"
-      redirect_to admin_item(@item.id)
+      flash[:notice] = "登録に成功しました"
+      redirect_to admin_item_path(@item.id)
     else
-      flash[:notice] = "unsuccessful"
+      flash[:notice] = "登録に失敗しました"
       render :edit
     end
   end
-  
+
   private
   def item_params
-    params.require(:item).permit(:name, :kcal, :protein, :fat, :carbohydrate, :brand, :flavor, :volume, :type, :price, :image)
+    params.require(:item).permit(:name, :kcal, :protein, :fat, :carbohydrate, :brand, :flavor, :volume, :protein_type, :price, :image)
   end
-  
+
 
 end

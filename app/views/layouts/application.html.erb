@@ -12,60 +12,72 @@
 
   <body>
     <header>
-      
+
      <% if admin_signed_in? %>
-      <nav class="navbar navbar-light bg-light">
-        <button class="btn btn-sm btn-outline-secondary" type="button">
+
+      <nav class="navbar navbar-light bg-light p-5">
+       <form class="container-fluid justify-content-end">
+        <button class="btn btn-sm btn-outline-secondary mr-auto" type="button">
           <%= link_to "プロテインマニア", admin_path %>
         </button>
-        <button class="btn btn-sm btn-outline-secondary" type="button">
+        <button class="btn btn-sm btn-outline-secondary ml-5" type="button">
           <%= link_to "商品一覧", admin_path %>
         </button>
-        <button class="btn btn-sm btn-outline-secondary" type="button">
+        <button class="btn btn-sm btn-outline-secondary ml-5" type="button">
           <%= link_to "会員一覧", admin_users_path %>
         </button>
-        <button class="btn btn-sm btn-outline-secondary" type="button">
+        <button class="btn btn-sm btn-outline-secondary ml-5" type="button">
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
         </button>
+       </form>
       </nav>
+
      <% elsif user_signed_in? %>
-      <nav class="navbar navbar-light bg-light">
-        <button class="btn btn-sm btn-outline-secondary" type="button">
-          <%= link_to "プロテインマニア", root_path %>
-        </button>
-        <button class="btn btn-sm btn-outline-secondary" type="button">
-          <%= link_to "About", about_path %>
-        </button>
-        <button class="btn btn-sm btn-outline-secondary" type="button">
-          <% link_to user_path(current_user) do %>
-            <%= current_user.name %>さんのマイページ
-          <% end %>
-        </button>
-        <button class="btn btn-sm btn-outline-secondary" type="button">
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-        </button>
+
+      <nav class="navbar navbar-light bg-light p-5">
+        <form class="container-fluid justify-content-end">
+          <button class="btn btn-sm btn-outline-secondary mr-auto" type="button">
+            <%= link_to "プロテインマニア", root_path %>
+          </button>
+          <button class="btn btn-sm btn-outline-secondary ml-5" type="button">
+            <%= link_to "About", about_path %>
+          </button>
+          <button class="btn btn-sm btn-outline-secondary ml-5" type="button">
+            <%= link_to user_path(current_user) do %>
+              <%= current_user.name %>さんのマイページ
+            <% end %>
+          </button>
+          <button class="btn btn-sm btn-outline-secondary ml-5" type="button">
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          </button>
+        </form>
       </nav>
+
      <% else %>
-      <nav class="navbar navbar-light bg-light">
-        <button class="btn btn-sm btn-outline-secondary" type="button">
-          <%= link_to "プロテインマニア", root_path %>
-        </button>
-        <button class="btn btn-sm btn-outline-secondary" type="button">
-          <%= link_to "About", about_path %>
-        </button>
-        <button class="btn btn-sm btn-outline-secondary" type="button">
-          <%= link_to "新規登録", new_user_registration_path %>
-        </button>
-        <button class="btn btn-sm btn-outline-secondary" type="button">
-          <%= link_to "ログイン", new_user_session_path %>
-        </button>
+
+      <nav class="navbar navbar-light bg-light p-5">
+        <form class="container-fluid justify-content-end">
+          <button class="btn btn-sm btn-outline-secondary mr-auto" type="button">
+            <%= link_to "プロテインマニア", root_path %>
+          </button>
+          <button class="btn btn-sm btn-outline-secondary ml-5" type="button">
+            <%= link_to "About", about_path %>
+          </button>
+          <button class="btn btn-sm btn-outline-secondary ml-5" type="button">
+            <%= link_to "新規登録", new_user_registration_path %>
+          </button>
+          <button class="btn btn-sm btn-outline-secondary ml-5" type="button">
+            <%= link_to "ログイン", new_user_session_path %>
+          </button>
+        </form>
       </nav>
+
      <% end %>
-    
+
     </header>
 
-        
-     
+
+
      <%= yield %>
   </body>
 </html>
