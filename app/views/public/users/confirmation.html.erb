@@ -1,7 +1,14 @@
 <div class="container">
-  <p>
-    本当に退会しますか？
-  </p>
-  <%= link_to "退会しない", user_path(current_user), class: 'btn btn-primary' %>
-  <%= link_to "退会する", withdrawal_path, method: :patch, data: {confirm: "本当に退会しますか？"}, class: 'btn btn-danger' %>
+  <div class="row justify-content-md-center">
+   <div class="col-6">
+    <p class="confirmation-text">
+     退会するとレビューの投稿ができなくなり、</br>
+     過去の投稿レビューも消えてしまいます。
+    </p>
+    <div class="pt_50-link">
+      <%= link_to "退会しない", user_path(current_user), class: 'btn btn-primary' %>
+      <%= link_to "退会する", withdrawal_path, method: :patch, data: {confirm: "本当に退会しますか？"}, class: 'btn btn-danger' %>
+    </div>
+   </div>
+  </div>
 </div>

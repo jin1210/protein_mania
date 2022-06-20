@@ -1,10 +1,13 @@
 <div class="container">
 
   <% @items.each do |item| %>
+  
   <div class="row justify-content-md-center mt-3">
+   
     <div class="col-2">
       <%= image_tag item.image, size: "150x150" %>
     </div>
+    
     <div class="col-5">
      <p>
       <%= link_to item_path(item.id) do %>
@@ -32,8 +35,10 @@
       </tbody>
      </table>
     </div>
-   </div>
-   <% end %>
+    
+  </div>
+  
+  <% end %>
 
   <%= paginate @items, theme: 'bootstrap-5' %>
 

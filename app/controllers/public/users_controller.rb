@@ -10,13 +10,12 @@ class Public::UsersController < ApplicationController
   end
 
   def update
-    user = current_user
-    user.update(user_params)
-    if user.save
-      flash[:notice] = "登録に成功しました"
-      redirect_to user_path(user.id)
+    @user = current_user
+    @user.update(user_params)
+    if @user.save
+      redirect_to user_path(@user.id), notice: '登録に成功しました'
     else
-      flash[:notice] = "登録に失敗しました"
+      flash.now.notice = "登録に失敗しました"
       render :edit
     end
   end
@@ -28,8 +27,7 @@ class Public::UsersController < ApplicationController
     user = current_user
     user.update(is_active: false)
     reset_session
-    flash[:notice] = "退会処理を実行いたしました"
-    redirect_to root_path
+    redirect_to root_path, notice: '退会処理を実行いたしました'
   end
 
   private

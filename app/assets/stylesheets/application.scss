@@ -21,17 +21,25 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap');
 
-.admin-sign_in-submit {
+// .admin-sign_in-submit 
+.pr_100-submit {
   padding-right: 100px;
   text-align: right;
 }
 
-.home-submit {
+// .home-submit 
+.pr_200-submit {
   padding-right: 200px;
   text-align: right;
 }
 
-.item_show {
+// .admin-submit 
+.center-submit {
+  text-align: center;
+}
+
+// .item_show 
+.pt_50-link {
   padding-top: 50px;
   text-align: right;
 }
@@ -50,10 +58,6 @@
   color: #32CD32;
 }
 
-.admin-submit {
-  text-align: center;
-}
-
 .background-image {
 background-image: image-url('top.jpg');
 background-repeat: no-repeat;
@@ -62,12 +66,33 @@ width: 100%;
 height: 500px;
 }
 
-.home-text {
+.home-title {
   font-family: 'Mochiy Pop One', sans-serif;
   color: #006400;
   padding-top: 200px;
   text-align: center;
 }
+
+.about-text {
+  font-family: 'Mochiy Pop One', sans-serif;
+  font-size: 35px;
+  margin-top: 30px;
+}
+
+.item-name {
+  font-size: 30px;
+  text-align: left;
+  margin-top: 100px;
+}
+
+.confirmation-text {
+  font-size: 27px;
+  margin-top: 100px;
+}
+
+
+
+
 
 .pagination {
   justify-content: center;

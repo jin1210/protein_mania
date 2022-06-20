@@ -1,11 +1,19 @@
 <div class="container">
 
+  <% if flash[:notice] %>
+   <div class="notice-green">
+     <%= flash[:notice] %>
+   </div>
+  <% end %>
+
   <div class="row">
     <div class="col-3 mb-5 mt-5">
       <%= image_tag @item.image, size: "200x200" %>
     </div>
     <div class="col-9">
-      <%= @item.name %>
+      <div class="item-name">
+       <%= @item.name %>
+      </div>
     </div>
   </div>
 
@@ -38,9 +46,9 @@
             <td style="width: 10%">
              購入目的：<%= review.purpose_i18n %>
             </td>
-           </tr>
+          </tr>
         </tbody>
-     </table>
+      </table>
       <p>
        <%= review.addition %>
       </p>

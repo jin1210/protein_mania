@@ -13,15 +13,25 @@ class Public::ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @item = Item.find(params[:item_id])
-    @review.user_id = current_user.id
-    @review.item_id = @item.id
-    if @review.save
-      flash[:notice] = "successfully"
-      redirect_to item_reviews_path(@item.id)
+
+    if user_signed_in?
+
+      @review.user_id = current_user.id
+      @review.item_id = @item.id
+
+      if @review.save
+        redirect_to item_reviews_path(@item.id), notice: '登録に成功しました'
+      else
+        flash.now.notice = "登録に失敗しました"
+        render :new
+      end
+
     else
-      flash[:notice] = "unsuccessful"
-      render :new
+
+      redirect_to new_user_session_path, notice: '投稿にはログインが必要です'
+
     end
+
   end
 
   private
