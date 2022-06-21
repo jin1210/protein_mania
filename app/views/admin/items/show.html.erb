@@ -9,7 +9,7 @@
 
   <h4>商品詳細</h4>
 
-  <div class="rowjustify-content-md-center mt-3">
+  <div class="row justify-content-md-center mt-3">
     <div class="col-3">
       <%= image_tag @item.image, size: "200x200" %>
     </div>
@@ -101,9 +101,10 @@
         </table>
     </div>
   </div>
-<div class="item_show">
-  <%= link_to "編集する", edit_admin_item_path(@item.id), class: "btn btn-success" %>
-</div>
+    
+  <div class="pt_50-link">
+    <%= link_to "編集する", edit_admin_item_path(@item.id), class: "btn btn-success" %>
+  </div>
 
 </div>
 

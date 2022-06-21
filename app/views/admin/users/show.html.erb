@@ -6,62 +6,69 @@
    </div>
   <% end %>
 
-  <h4><%= @user.name %>さんの会員詳細</h4>
+  <div class="row justify-content-md-center mt-3">
+    <div class="col-6">
+     <h4><%= @user.name %>さんの会員詳細</h4>
 
-  <table class="table table-borderless mt-5">
-    <tbody>
-      <tr>
-        <td style="width: 40%">
-          会員ID
-        </td>
-        <td>
-          <%= @user.id %>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          ユーザー画像
-        </td>
-        <td>
-          <% if @user.image.attached? %>
-           <%= image_tag @user.image, size: "100x100" %>
-          <% else %>
-           <%= image_tag 'no_image', size: "100x100" %>
-          <% end %>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          名前
-        </td>
-        <td>
-          <%= @user.name %>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          メールアドレス
-        </td>
-        <td>
-          <%= @user.email %>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          会員ステータス
-        </td>
-        <td>
-          <% if @user.is_active == true %>
-           有効
-          <% else %>
-           無効
-          <% end %>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+      <table class="table table-borderless">
+        <tbody>
+          <tr>
+            <td style="width: 40%">
+              会員ID
+            </td>
+            <td>
+              <%= @user.id %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="mt-4">
+               ユーザー画像
+              </p>
+            </td>
+            <td>
+              <% if @user.image.attached? %>
+               <%= image_tag @user.image, size: "100x100" %>
+              <% else %>
+               <%= image_tag 'no_image', size: "100x100" %>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              名前
+            </td>
+            <td>
+              <%= @user.name %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              メールアドレス
+            </td>
+            <td>
+              <%= @user.email %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              会員ステータス
+            </td>
+            <td>
+              <% if @user.is_active == true %>
+               有効
+              <% else %>
+               無効
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      
+    </div>
+  </div>
 
- <div class="home-submit">
+ <div class="pr_200-submit">
   <%= link_to "編集する", edit_admin_user_path(@user.id), class: "btn btn-primary" %>
   <%= link_to "レビュー一覧", admin_user_reviews_path(@user.id), class: "btn btn-primary" %>
  </div>

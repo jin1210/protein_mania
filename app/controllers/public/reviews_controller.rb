@@ -2,7 +2,7 @@ class Public::ReviewsController < ApplicationController
 
   def index
     @item = Item.find(params[:item_id])
-    @reviews = @item.reviews
+    @reviews = @item.reviews.all.page(params[:page]).per(5)
   end
 
   def new

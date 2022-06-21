@@ -6,24 +6,36 @@
    </div>
   <% end %>
 
-  <h4><%= @user.name %> さんの会員情報編集</h4>
+  <div class="row justify-content-md-center mt-5">
+   <div class="col-6">
+  
+    <h4><%= @user.name %> さんの会員情報編集</h4>
+  
+    <%= form_with model: @user, url: admin_user_path, method: :patch do |f| %>
+  
+    <table class="table table-borderless">
+        <tbody>
+          <tr>
+            <td>
+             会員ステータス
+            </td>
+            <td>
+             <%= f.radio_button :is_active, "true", class:'ml-3' %>有効
+             <%= f.radio_button :is_active, "false", class:'ml-5' %>無効
+            </td>
+          </tr>
+        </tbody>
+    </table>
 
-<%= form_with model: @user, url: admin_user_path, method: :patch do |f| %>
-
-  <div class="row mt-4 ml-5">
-    <div class="col-3 pl-5">
-     会員ステータス
+    <div class="pr_100-submit">
+     <%= f.submit '変更を保存', class: "btn btn-primary ml-5" %>
     </div>
-    <div class="col-9">
-      <%= f.radio_button :is_active, "true", class:'ml-3' %>有効
-      <%= f.radio_button :is_active, "false", class:'ml-5' %>退会
-    </div>
+    
+    <% end %>
+  
   </div>
-
-  <div class="home-submit">
-   <%= f.submit '変更を保存', class: "btn btn-primary ml-5" %>
-  </div>
+ </div>
 
 
- <% end %>
+ 
 </div>

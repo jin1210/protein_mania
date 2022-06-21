@@ -2,7 +2,7 @@ class Admin::ReviewsController < ApplicationController
 before_action :authenticate_admin!
   def index
     @user = User.find(params[:user_id])
-    @reviews = @user.reviews
+    @reviews = @user.reviews.all.page(params[:page]).per(5)
   end
 
   def destroy

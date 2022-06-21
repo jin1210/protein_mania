@@ -1,23 +1,26 @@
 <div class="container">
- 
+
   <% if flash[:notice] %>
    <div class="notice-green">
      <%= flash[:notice] %>
    </div>
   <% end %>
- 
+
  <h4>マイページ</h4>
 
  <div class="row justify-content-md-center">
    <div class="col-3">
+
     <p>
      登録情報一覧
     </p>
+
      <% if @user.image.attached? %>
       <%= image_tag @user.image, size: "100x100" %>
      <% else %>
       <%= image_tag 'no_image', size: "100x100" %>
      <% end %>
+
     <table class="table table-borderless">
      <tbody>
       <tr>
@@ -38,45 +41,61 @@
       </tr>
      </tbody>
     </table>
-    <div class="admin-submit">
+
+    <div class="center-submit">
      <%= link_to "編集する", edit_user_path(@user), class: "btn btn-success" %>
     </div>
+
    </div>
+
    <div class ="col-9">
+
     <p>
      投稿レビュー一覧
     </p>
+
     <% if @reviews.present? %>
+
      <% @reviews.each do |review| %>
-     <div class="show">
-      <%= image_tag review.item.image, size: "100x100" %>
-     </div>
-     <div class="show-name">
-      <%= review.item.name %>
-     </div>
-     <table class="table table-borderless">
-        <tbody>
-          <tr>
-            <td style="width: 10%">
-             飲みやすさ：<%= review.ease_i18n %>
-            </td>
-            <td style="width: 10%">
-             味：<%= review.taste_i18n %>
-            </td>
-            <td style="width: 10%">
-             購入目的：<%= review.purpose_i18n %>
-            </td>
-           </tr>
-        </tbody>
-     </table>
-     <p>
-      <%= review.addition %>
-     </p>
+
+      <div class="inline">
+       <%= image_tag review.item.image, size: "100x100" %>
+      </div>
+
+      <div class="inline-ml_50">
+       <%= review.item.name %>
+      </div>
+
+      <table class="table table-borderless">
+       <tbody>
+        <tr>
+         <td style="width: 10%">
+          飲みやすさ：<%= review.ease_i18n %>
+         </td>
+         <td style="width: 10%">
+          味：<%= review.taste_i18n %>
+         </td>
+         <td style="width: 10%">
+          購入目的：<%= review.purpose_i18n %>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+
+      <p>
+       <%= review.addition %>
+      </p>
+
      <% end %>
+
     <% else %>
+
      <p>レビューなし</p>
+
     <% end %>
+
     <%= paginate @reviews, theme: 'bootstrap-5' %>
+
    </div>
  </div>
 </div>

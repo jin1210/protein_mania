@@ -22,14 +22,14 @@
   <% @reviews.each do |review| %>
    <div class="row">
     <div class="col-3">
-     <div class="show">
+     <div class="inline">
        <% if review.user.image.attached? %>
         <%= image_tag review.user.image, size: "100x100" %>
        <% else %>
         <%= image_tag 'no_image', size: "100x100" %>
        <% end %>
      </div>
-     <div class="show-name">
+     <div class="inline-ml_50">
        <%= review.user.name %>
      </div>
     </div>
@@ -55,5 +55,7 @@
     </div>
    </div>
   <% end %>
+  
+  <%= paginate @reviews, theme: 'bootstrap-5' %>
 
 </div>
