@@ -21,24 +21,24 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap');
 
-// .admin-sign_in-submit 
+// .admin-sign_in-submit
 .pr_100-submit {
   padding-right: 100px;
   text-align: right;
 }
 
-// .home-submit 
+// .home-submit
 .pr_200-submit {
   padding-right: 200px;
   text-align: right;
 }
 
-// .admin-submit 
+// .admin-submit
 .center-submit {
   text-align: center;
 }
 
-// .item_show 
+// .item_show
 .pt_50-link {
   padding-top: 50px;
   text-align: right;
@@ -97,6 +97,11 @@ height: 500px;
 .inline-ml_50 {
   display: inline-block;
   margin-left: 50px;
+}
+
+.inline-ml_325 {
+  display: inline-block;
+  margin-left: 325px;
 }
 
 .edit-text {
