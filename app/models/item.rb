@@ -23,22 +23,22 @@ class Item < ApplicationRecord
 
     elsif params[:item][:low_kcal].present? && params[:item][:high_kcal].present? && params[:item][:low_protein].present? && params[:item][:high_protein].present? && params[:item][:fat].present? && params[:item][:carbohydrate].blank?
       @items = Item.where('kcal >= ? and kcal<= ? and protein >= ? and protein <= ? and fat <= ?', params[:item][:low_kcal], params[:item][:high_kcal], params[:item][:low_protein], params[:item][:high_protein], params[:item][:fat])
-    
+
     elsif params[:item][:low_kcal].present? && params[:item][:high_kcal].present? && params[:item][:low_protein].present? && params[:item][:high_protein].present? && params[:item][:fat].blank? && params[:item][:carbohydrate].present?
       @items = Item.where('kcal >= ? and kcal<= ? and protein >= ? and protein <= ? and carbohydrate <= ?', params[:item][:low_kcal], params[:item][:high_kcal], params[:item][:low_protein], params[:item][:high_protein], params[:item][:carbohydrate])
-      
+
     elsif params[:item][:low_kcal].present? && params[:item][:high_kcal].present? && params[:item][:low_protein].present? && params[:item][:high_protein].blank? && params[:item][:fat].present? && params[:item][:carbohydrate].present?
       @items = Item.where('kcal >= ? and kcal<= ? and protein >= ? and fat <= ? and carbohydrate <= ?', params[:item][:low_kcal], params[:item][:high_kcal], params[:item][:low_protein], params[:item][:fat], params[:item][:carbohydrate])
-      
+
     elsif params[:item][:low_kcal].present? && params[:item][:high_kcal].present? && params[:item][:low_protein].blank? && params[:item][:high_protein].present? && params[:item][:fat].present? && params[:item][:carbohydrate].present?
       @items = Item.where('kcal >= ? and kcal<= ? and protein <= ? and fat <= ? and carbohydrate <= ?', params[:item][:low_kcal], params[:item][:high_kcal], params[:item][:high_protein], params[:item][:fat], params[:item][:carbohydrate])
-      
+
     elsif params[:item][:low_kcal].present? && params[:item][:high_kcal].blank? && params[:item][:low_protein].present? && params[:item][:high_protein].present? && params[:item][:fat].present? && params[:item][:carbohydrate].present?
       @items = Item.where('kcal >= ? and protein >= ? and protein <= ? and fat <= ? and carbohydrate <= ?', params[:item][:low_kcal], params[:item][:low_protein], params[:item][:high_protein], params[:item][:fat], params[:item][:carbohydrate])
 
     elsif params[:item][:low_kcal].blank? && params[:item][:high_kcal].present? && params[:item][:low_protein].present? && params[:item][:high_protein].present? && params[:item][:fat].present? && params[:item][:carbohydrate].present?
       @items = Item.where('kcal<= ? and protein >= ? and protein <= ? and fat <= ? and carbohydrate <= ?', params[:item][:high_kcal], params[:item][:low_protein], params[:item][:high_protein], params[:item][:fat], params[:item][:carbohydrate])
-      
+
     elsif params[:item][:low_kcal].present? && params[:item][:high_kcal].present? && params[:item][:low_protein].present? && params[:item][:high_protein].present? && params[:item][:fat].blank? && params[:item][:carbohydrate].blank?
       @items = Item.where('kcal >= ? and kcal<= ? and protein >= ? and protein <= ?', params[:item][:low_kcal], params[:item][:high_kcal], params[:item][:low_protein], params[:item][:high_protein])
 
@@ -132,6 +132,9 @@ class Item < ApplicationRecord
     elsif params[:item][:low_kcal].blank? && params[:item][:high_kcal].blank? && params[:item][:low_protein].blank? && params[:item][:high_protein].blank? && params[:item][:fat].present? && params[:item][:carbohydrate].present?
       @items = Item.where('fat <= ? and carbohydrate <= ?', params[:item][:fat], params[:item][:carbohydrate])
 
+    elsif params[:item][:low_kcal].blank? && params[:item][:high_kcal].blank? && params[:item][:low_protein].present? && params[:item][:high_protein].present? && params[:item][:fat].blank? && params[:item][:carbohydrate].blank?
+      @items = Item.where('protein >= ? and protein <= ?', params[:item][:low_protein], params[:item][:high_protein])
+
     elsif params[:item][:low_kcal].present? && params[:item][:high_kcal].blank? && params[:item][:low_protein].blank? && params[:item][:high_protein].blank? && params[:item][:fat].blank? && params[:item][:carbohydrate].blank?
       @items = Item.where('kcal >= ?', params[:item][:low_kcal])
 
@@ -149,11 +152,11 @@ class Item < ApplicationRecord
 
     elsif params[:item][:low_kcal].blank? && params[:item][:high_kcal].blank? && params[:item][:low_protein].present? && params[:item][:high_protein].blank? && params[:item][:fat].blank? && params[:item][:carbohydrate].blank?
       @items = Item.where('protein >= ?', params[:item][:low_protein])
-      
+
     else
       @items = Item.all
     end
-    
+
   end
 
 end
