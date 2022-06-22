@@ -20,7 +20,7 @@ class Public::ReviewsController < ApplicationController
       @review.item_id = @item.id
 
       if @review.save
-        redirect_to item_reviews_path(@item.id), notice: '登録に成功しました'
+        redirect_to item_reviews_path(@item.id), notice: '投稿に成功しました'
       else
         flash.now.notice = "登録に失敗しました"
         render :new
