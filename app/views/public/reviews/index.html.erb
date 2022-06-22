@@ -26,7 +26,7 @@
        <% if review.user.image.attached? %>
         <%= image_tag review.user.image, size: "100x100" %>
        <% else %>
-        <%= image_tag 'no_image.', size: "100x100" %>
+        <%= image_tag 'no_image.jpg', size: "100x100" %>
        <% end %>
      </div>
      <div class="inline-ml_50">
@@ -55,7 +55,7 @@
     </div>
    </div>
   <% end %>
-  
+
   <%= paginate @reviews, theme: 'bootstrap-5' %>
 
 </div>
