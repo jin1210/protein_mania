@@ -2,7 +2,7 @@ class Public::UsersController < ApplicationController
 
   def show
     @user = current_user
-    @reviews = @user.reviews.all.page(params[:page]).per(5)
+    @reviews = @user.reviews.all.page(params[:page]).per(4)
   end
 
   def edit
