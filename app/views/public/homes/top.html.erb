@@ -24,9 +24,9 @@
     カロリー
    </div>
    <div class="col-10">
-     <%= form.text_field :low_kcal %>
+     <%= form.number_field :low_kcal %>
      ～
-     <%= form.text_field :high_kcal %> kcal
+     <%= form.number_field :high_kcal %> kcal
    </div>
   </div>
 
@@ -35,9 +35,9 @@
     タンパク質
    </div>
    <div class="col-10">
-     <%= form.text_field :low_protein %>
+     <%= form.number_field :low_protein %>
      ～
-     <%= form.text_field :high_protein %> g以下
+     <%= form.number_field :high_protein %> g以下
    </div>
   </div>
 
@@ -46,7 +46,7 @@
     脂質
    </div>
    <div class="col-10">
-     <%= form.text_field :fat %> g以下
+     <%= form.number_field :fat %> g以下
    </div>
   </div>
 
@@ -55,7 +55,7 @@
     炭水化物
    </div>
    <div class="col-10">
-     <%= form.text_field :carbohydrate %> g以下
+     <%= form.number_field :carbohydrate %> g以下
    </div>
   </div>
 
