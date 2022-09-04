@@ -101,9 +101,12 @@
         </table>
     </div>
   </div>
-    
+
   <div class="pt_50-link">
     <%= link_to "編集する", edit_admin_item_path(@item.id), class: "btn btn-success" %>
+  </div>
+  <div class="pt_50-link">
+     <%= link_to "削除する", admin_item_path(@item.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class: 'btn btn-danger' %>
   </div>
 
 </div>

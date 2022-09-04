@@ -7,7 +7,7 @@ before_action :authenticate_admin!
   def create
     @item = Item.new(item_params)
     if @item.save
-      
+
       redirect_to admin_item_path(@item.id), notice: '登録に成功しました'
     else
       flash.now.notice = "登録に失敗しました"
@@ -27,13 +27,20 @@ before_action :authenticate_admin!
     @item = Item.find(params[:id])
     @item.update(item_params)
     if @item.save
-      
+
       redirect_to admin_item_path(@item.id), notice: '登録に成功しました'
     else
       flash.now.notice = "登録に失敗しました"
       render :edit
     end
   end
+
+  def destroy
+    item = Item.find(params[:id])
+    item.destroy
+    redirect_to admin_path
+  end
+
 
   private
   def item_params

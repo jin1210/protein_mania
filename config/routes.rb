@@ -12,7 +12,7 @@ devise_for :admin, skip: [:registrations, :passwords], controllers: {
 
  namespace :admin do
 
-    resources :items, except: [:destroy, :index]
+    resources :items, except: [:index]
 
     get '/' => 'homes#top'
 
